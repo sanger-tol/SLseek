@@ -24,7 +24,7 @@ workflow {
     EXTRACT_TRANSCRIPTS_ENDS(params.transcripts, params.length)
     
     if (params.kmer_counting_tool == "fastk") {
-        COUNTING_KMERS_FASTK(EXTRACT_TRANSCRIPTS_ENDS.out, kmer_lengths, params.lower_cov_thrsld_counting)
+        COUNTING_KMERS_FASTK(EXTRACT_TRANSCRIPTS_ENDS.out, params.k, params.lower_cov_thrsld_counting)
         HISTOGRAM_PLOTTING(COUNTING_KMERS_FASTK.out.kmers_fastk_histex)
         GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
                             .combine(COUNTING_KMERS_FASTK.out.kmers_fastk_formatted)
@@ -38,7 +38,7 @@ workflow {
     }
 
     if (params.kmer_counting_tool == "jellyfish") {
-        COUNTING_KMERS_JELLYFISH(EXTRACT_TRANSCRIPTS_ENDS.out, kmer_lengths)
+        COUNTING_KMERS_JELLYFISH(EXTRACT_TRANSCRIPTS_ENDS.out, params.k)
         FORMATING_JELLYFISH_OUTPUT(COUNTING_KMERS_JELLYFISH.out.kmers_jellyfish_jf, params.lower_cov_thrsld_counting)
         HISTOGRAM_PLOTTING(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_histo)
         GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
