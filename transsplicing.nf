@@ -28,7 +28,7 @@ workflow {
         HISTOGRAM_PLOTTING(COUNTING_KMERS_FASTK.out.kmers_fastk_histex)
         GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
                             .combine(COUNTING_KMERS_FASTK.out.kmers_fastk_formatted)
-                            .combine(params.lower_cov_thrsld_extracting), 
+                            .map { extracted, kmers -> tuple(params.extracted, kmers, params.lower_cov_thrsld_extracting) }, 
                          params.max_distance, 
                          params.extra_border, 
                          params.size_limit_max, 
@@ -43,7 +43,7 @@ workflow {
         HISTOGRAM_PLOTTING(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_histo)
         GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
                                 .combine(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_formatted)
-                                .combine(params.lower_cov_thrsld_extracting), 
+                                .map { extracted, kmers -> tuple(params.extracted, kmers, params.lower_cov_thrsld_extracting) }, 
                             params.max_distance, 
                             params.extra_border, 
                             params.size_limit_max, 
