@@ -41,9 +41,9 @@ workflow {
         COUNTING_KMERS_JELLYFISH(EXTRACT_TRANSCRIPTS_ENDS.out, params.k)
         FORMATING_JELLYFISH_OUTPUT(COUNTING_KMERS_JELLYFISH.out.kmers_jellyfish_jf, params.lower_cov_thrsld_counting)
         HISTOGRAM_PLOTTING(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_histo)
-        GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
-                                .combine(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_formatted)
-                                .map { extracted, kmers -> tuple(params.extracted, kmers, params.lower_cov_thrsld_extracting) }, 
+        GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out,
+                            FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_formatted,
+                            params.lower_cov_thrsld_extracting, 
                             params.max_distance, 
                             params.extra_border, 
                             params.size_limit_max, 

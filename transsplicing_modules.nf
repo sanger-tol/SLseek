@@ -87,7 +87,9 @@ process GETTING_PUTATIVE_SLS {
     publishDir "${params.outdir}/3draft_putative_sls"
     
     input:
-    tuple path(extracted_transcripts), path(kmers_table), val(abund_thrd) 
+    path extracted_transcripts
+    path kmers_table
+    val abund_thrd 
     val max_distance
     val extra_border
     val size_limit_max
