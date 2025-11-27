@@ -26,9 +26,9 @@ workflow {
     if (params.kmer_counting_tool == "fastk") {
         COUNTING_KMERS_FASTK(EXTRACT_TRANSCRIPTS_ENDS.out, params.k, params.lower_cov_thrsld_counting)
         HISTOGRAM_PLOTTING(COUNTING_KMERS_FASTK.out.kmers_fastk_histex)
-        GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
-                            .combine(COUNTING_KMERS_FASTK.out.kmers_fastk_formatted)
-                            .map { extracted, kmers -> tuple(params.extracted, kmers, params.lower_cov_thrsld_extracting) }, 
+        GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out,
+                        COUNTING_KMERS_FASTK.out.kmers_fastk_formatted,
+                        params.lower_cov_thrsld_extracting, 
                          params.max_distance, 
                          params.extra_border, 
                          params.size_limit_max, 
