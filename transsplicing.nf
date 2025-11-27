@@ -19,12 +19,6 @@ include { HEATMAP                      } from './transsplicing_modules.nf'
 include { HISTOGRAM_PLOTTING_JELLYFISH } from './transsplicing_modules.nf'
 include { HISTOGRAM_PLOTTING           } from './transsplicing_modules.nf'
 
-
-
-
-kmer_lengths = Channel.fromList( params.k )
-putative_thrslds = Channel.fromList( params.lower_cov_thrsld_extracting )
-
 // Define the workflow
 workflow {
     EXTRACT_TRANSCRIPTS_ENDS(params.transcripts, params.length)
@@ -34,7 +28,7 @@ workflow {
         HISTOGRAM_PLOTTING(COUNTING_KMERS_FASTK.out.kmers_fastk_histex)
         GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
                             .combine(COUNTING_KMERS_FASTK.out.kmers_fastk_formatted)
-                            .combine(putative_thrslds), 
+                            .combine(params.lower_cov_thrsld_extracting), 
                          params.max_distance, 
                          params.extra_border, 
                          params.size_limit_max, 
@@ -49,7 +43,7 @@ workflow {
         HISTOGRAM_PLOTTING(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_histo)
         GETTING_PUTATIVE_SLS(EXTRACT_TRANSCRIPTS_ENDS.out
                                 .combine(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_formatted)
-                                .combine(putative_thrslds), 
+                                .combine(params.lower_cov_thrsld_extracting), 
                             params.max_distance, 
                             params.extra_border, 
                             params.size_limit_max, 
