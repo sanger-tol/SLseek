@@ -16,7 +16,6 @@ include { GETTING_PUTATIVE_SLS         } from './transsplicing_modules.nf'
 include { CLUSTERING_PUTATIVE_SLS      } from './transsplicing_modules.nf'
 include { SUMMARIZING_CLUSTERS         } from './transsplicing_modules.nf'
 include { HEATMAP                      } from './transsplicing_modules.nf'
-include { HISTOGRAM_PLOTTING_JELLYFISH } from './transsplicing_modules.nf'
 include { HISTOGRAM_PLOTTING           } from './transsplicing_modules.nf'
 
 // Define the workflow
@@ -51,7 +50,6 @@ workflow {
                             params.entropy_lim, 
                             params.nucleotide_limit)
 
-        // HISTOGRAM_PLOTTING_JELLYFISH(FORMATING_JELLYFISH_OUTPUT.out.kmers_jellyfish_histo)
     }
 
     CLUSTERING_PUTATIVE_SLS(GETTING_PUTATIVE_SLS.out, params.identity_thrsld)
