@@ -76,13 +76,32 @@ nextflow run transsplicing.nf \
 ```
 
 **RESULTS**
-- Kmer plot
-![Descrição da imagem](test/results//example.png)
 
-- Heatmap
+| Kmer plot | heatmap |
+|----------|----------|
+| ![](figures/fastk_celegans_slidr_transcripts_extracted100_k17_LC150_histogram.png) | ![](figures/fastk_celegans_slidr_transcripts_extracted100_k17_LC150_minCov150_clustered_nr0_clustered_putativeSLs_heatmap.png) | 
+
+| SL_ID          | putative_sequence                       | entropy           | avg_coverage      | supporting_kmers | #_transcripts_in_cluster |
+|----------------|----------------------------------------|-----------------|-----------------|-----------------|--------------------------|
+| putativeSL.56  | CGGCAATTTGCCGATTTGCCGGAAATTTTC        | 1.97248976687495 | 295.8           | 15              | 258                      |
+| putativeSL.84  | CGGAATTGAAAATTTCCGGCAAATCGGCAA        | 1.94939785333961 | 285.266666666667| 15              | 116                      |
+| putativeSL.294 | CATTTTCTCAAACTTGGGTAATTAAACCCC        | 1.89010748014126 | 1777.5          | 14              | 2825                     |
+| putativeSL.521 | AATTGAAAATTTCCGGCAAATCGGCAAATT        | 1.89892956369094 | 300.666666666667| 15              | 5                        |
+| putativeSL.786 | GGAATGGAATGGAATGGAATGGAATGGAAT        | 1.52192809488736 | 188.6           | 15              | 53                       |
+| putativeSL.1454| AAATTGCCGGAATTGAAAATTTCCGGCAAA        | 1.91387559754782 | 217.2           | 15              | 110                      |
+| putativeSL.1934| GCAAATCGGCAAATTGCCGGAATTGAAAAT        | 1.91387559754782 | 204.142857142857| 14              | 119                      |
+| putativeSL.2378| TCAATTCCGGCAATTTGCCGATTTGCCGGA        | 1.98387111321815 | 231.357142857143| 14              | 40                       |
+| putativeSL.3495| GAAAATTTCCGGCAAATCGGCAAACCGGCA        | 1.9167161869614  | 288.75          | 12              | 68                       |
+| putativeSL.1294| CGATTTGCCGGAAATTTTCAATTCCGGCA         | 1.9841165493995  | 229.5           | 14              | 1                        |
+| putativeSL.338 | TTACCTCAAACTTGGGTAATTAAACCCT          | 1.89788985125302 | 1768.23076923077| 13              | 367                      |
+| putativeSL.2328| CGGAAATTTTCAATTCCGGCAATTTGCC          | 1.97014297933532 | 211.230769230769| 13              | 5                        |
+| putativeSL.4202| GAGGGTTTAATTACCCAAGTTTGAGAAT          | 1.89788985125302 | 1893.53846153846| 13              | 2                        |
+| putativeSL.288 | CATCTCAAACTTGGGTAATTAAACCT            | 1.9006709673922  | 2069.81818181818| 11              | 52                       |
+| putativeSL.7   | CGGTTTGATCTACAAAAAATGCGGG             | 1.95740581142552 | 245.3           | 10              | 244                      |
+| putativeSL.10  | CATATTTGACGCGCAAAATATC                 | 1.9196905740497  | 162.666666666667| 6               | 113                      |
+| putativeSL.6   | GGACCACCAGGACCACCAGG                    | 1.57095059445467 | 185.2           | 5               | 143                      |
 
 
-- Main result
 
 ```bash
 nextflow run transsplicing.nf \
@@ -96,6 +115,15 @@ nextflow run transsplicing.nf \
         -profile lsf, singularity \
         -resume 
 ```
+
+| Kmer plot | heatmap |
+|----------|----------|
+| ![](figures/jf_celegans_slidr_transcripts_extracted100_k17_LC500_histogram.png) | ![](figures/jf_celegans_slidr_transcripts_extracted100_k17_LC500_minCov150_clustered_nr0_clustered_putativeSLs_heatmap.png) | 
+
+| SL_ID          | putative_sequence              | entropy           | avg_coverage | supporting_kmers | #_transcripts_in_cluster |
+|----------------|-------------------------------|-----------------|-------------|-----------------|--------------------------|
+| putativeSL.31  | GGGGTTTAATTACCCAAGTTTGAGA     | 1.92154193333593 | 2376.1      | 10              | 3174                     |
+
 
 
 ```bash
@@ -111,13 +139,14 @@ nextflow run transsplicing.nf \
         -resume 
 ```
 
-**RESULTS**
-- Kmer plot
+| Kmer plot | heatmap |
+|----------|----------|
+| ![](figures/fastk_celegans_slidr_transcripts_extracted100_k21_LC500_histogram.png) | ![](figures/fastk_celegans_slidr_transcripts_extracted100_k21_LC500_minCov150_clustered_nr0_clustered_putativeSLs_heatmap.png) | 
 
-- Heatmap
+| SL_ID          | putative_sequence              | entropy           | avg_coverage       | supporting_kmers | #_transcripts_in_cluster |
+|----------------|-------------------------------|-----------------|------------------|-----------------|--------------------------|
+| putativeSL.31  | GGGGTTTAATTACCCAAGTTTGAGA     | 1.92154193333593 | 1760.83333333333 | 6               | 3174                     |
 
-
-- Main result
 
 
 
