@@ -75,6 +75,27 @@ nextflow run transsplicing.nf \
         -resume 
 ```
 
+**RESULTS**
+- Kmer plot
+![Descrição da imagem](test/results//example.png)
+
+- Heatmap
+
+
+- Main result
+
+```bash
+nextflow run transsplicing.nf \
+        -c transsplicing.config
+        --transcripts "$INPUT_PATH" \
+        --lower_cov_thrsld_counting 500 \
+        --k 17 \
+        --outdir "test/results/" \
+        --kmer_counting_tool "jellyfish" \
+        --heatmap --kmerplot \
+        -profile lsf, singularity \
+        -resume 
+```
 
 
 ```bash
@@ -90,7 +111,13 @@ nextflow run transsplicing.nf \
         -resume 
 ```
 
+**RESULTS**
+- Kmer plot
 
+- Heatmap
+
+
+- Main result
 
 
 
