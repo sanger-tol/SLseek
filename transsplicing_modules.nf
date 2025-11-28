@@ -108,10 +108,7 @@ process GETTING_PUTATIVE_SLS {
 }
 
 process CLUSTERING_PUTATIVE_SLS {
-    publishDir "${params.outdir}/4final_putative_sls"
-
-    cpus 4
-    memory '8 GB'
+    publishDir "${params.outdir}/4final_putative_sls"    
 
     input:
     path draft_putative_sls
