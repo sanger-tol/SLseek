@@ -19,6 +19,9 @@ Optionally, the pipeline can generate a k-mer histogram and a heatmap plot with 
 
 ![](https://github.com/Beatriz-Estevam/SLseek/blob/main/figures/SLseek_representation.png)
 
+---
+
+
 ## ⚙️ Usage
 
 > [!NOTE]
@@ -32,6 +35,7 @@ nextflow run transsplicing.nf -profile [standard | lsf [ ,singularity ]] \
     -c [transsplicing.config] \
     [ -resume ]
 ```
+---
 
 ## 📖 Understanding parameters 
 | Parameter | Default | Required | Description | Options/Input Type |
@@ -52,6 +56,28 @@ nextflow run transsplicing.nf -profile [standard | lsf [ ,singularity ]] \
 | `heatmap` | `false` | **No** | If called or true, will generate a heatmap plot with putative SL analysis metrics | `boolean` (E.g., true; false) |
 | `kmerplot` | `false` | **No** | If called or true, will generate a kmer histogram with kmer counting process | `boolean` (E.g., true; false) |
 | `kmer_counting_tool` | `jellyfish`  | **Yes** | kmer counting tool | `string` (E.g., jellyfish or fastk)|
+
+---
+
+## 📦 Using the SLseek Singularity Container
+
+The SLseek workflow can use a Singularity image for easy reproducibility. You can pull it from the [Sylabs Cloud](https://cloud.sylabs.io/) library and run it directly. 
+
+### 1. Pull the container
+
+```bash
+singularity pull library://beatriz-estevam/bio/slseek:1.0.0
+```
+
+This will download `slseek.sif` to your current directory. SLseek expects it in the [`containers` directory](https://github.com/sanger-tol/SLseek/tree/main/containers). 
+
+### 2. Use at least the `--profile singularity` to run the pipeline with it 
+
+```bash
+nextflow run transsplicing.nf -c transsplicing.config -profile singularity
+```
+
+---
 
 
 ## 🧪 Test data
