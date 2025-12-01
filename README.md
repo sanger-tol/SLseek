@@ -66,7 +66,7 @@ A  set of data to test is provided within the project repository to help users q
 ```bash
 nextflow run transsplicing.nf \
         -c transsplicing.config
-        --transcripts "$INPUT_PATH" \
+        --transcripts test/celegans_slidr_transcripts.fa \
         --k 17 \
         --outdir "test/results/" \
         --kmer_counting_tool "fastk" \
@@ -106,7 +106,7 @@ nextflow run transsplicing.nf \
 ```bash
 nextflow run transsplicing.nf \
         -c transsplicing.config
-        --transcripts "$INPUT_PATH" \
+        --transcripts test/celegans_slidr_transcripts.fa \
         --lower_cov_thrsld_counting 500 \
         --k 17 \
         --outdir "test/results/" \
@@ -129,7 +129,7 @@ nextflow run transsplicing.nf \
 ```bash
 nextflow run transsplicing.nf \
         -c transsplicing.config
-        --transcripts "$INPUT_PATH" \
+        --transcripts test/celegans_slidr_transcripts.fa \
         --lower_cov_thrsld_counting 500 \
         --k 21 \
         --outdir "test/results/" \
